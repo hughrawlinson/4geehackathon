@@ -57,8 +57,8 @@ $('#submit').click(function(){
 					else{
 						listitem = listitem.concat("<img src='http://www.placehold.it/80x80'/>");
 					}
-					listitem = listitem.concat("<label>"+data.people.values[i].firstName+" "+data.people.values[i].lastName+"<label/>");
-					listitem = listitem.concat("<label>"+data.people.values[i].headline+"<label/>");
+					listitem = listitem.concat("<label>"+data.people.values[i].firstName+" "+data.people.values[i].lastName+"</label>");
+					listitem = listitem.concat("<label>"+data.people.values[i].headline+"</label>");
 					listitem = listitem.concat("</li></a>");
 				}
 				else{
@@ -69,8 +69,8 @@ $('#submit').click(function(){
 					else{
 						listitem = listitem.concat("<img src='http://www.placehold.it/80x80'/>");
 					}
-					listitem = listitem.concat("<label>"+data.people.values[i].firstName+" "+data.people.values[i].lastName+"<label/>");
-					listitem = listitem.concat("<label>"+data.people.values[i].headline+"<label/>");
+					listitem = listitem.concat("<label>"+data.people.values[i].firstName+" "+data.people.values[i].lastName+"</label>");
+					listitem = listitem.concat("<label>"+data.people.values[i].headline+"</label>");
 					listitem = listitem.concat("</li>");
 				}
 				console.log(listitem);
