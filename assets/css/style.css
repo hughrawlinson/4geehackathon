@@ -16,3 +16,12 @@
 li > a {
     display: block;
 }
+#linkedinList{
+	-moz-column-count:4; /* Firefox */
+	-webkit-column-count:4; /* Safari and Chrome */
+	column-count:4;
+	height:450px;
+}/*
+#linkedinList > div{
+	height:400px;
+}*/

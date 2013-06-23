@@ -41,8 +41,9 @@ $(document).ready(function(){
 var listitem = "";
 $('#submit').click(function(){
 	var searchParameter = $('#input').val();
+	console.log
 	IN.API.PeopleSearch()
-		.fields(['first-name','last-name','picture-url','site-standard-profile-request'])
+		.fields(['first-name','last-name','picture-url','site-standard-profile-request','headline'])
 		.params({"skill":searchParameter})
 		.result(function(data){
 			console.log(data);
@@ -50,14 +51,26 @@ $('#submit').click(function(){
 			for(var i = 0; i < data.people.values.length; i++){
 				if(data.people.values[i].siteStandardProfileRequest!=undefined){
 					listitem = "<a href='"+data.people.values[i].siteStandardProfileRequest.url+"'><li>";
-					listitem = listitem.concat("<img src='"+data.people.values[i].pictureUrl+"'/>");
+					if(data.people.values[i].pictureUrl!=undefined){
+						listitem = listitem.concat("<img src='"+data.people.values[i].pictureUrl+"'/>");
+					}
+					else{
+						listitem = listitem.concat("<img src='http://www.placehold.it/80x80'/>");
+					}
 					listitem = listitem.concat("<label>"+data.people.values[i].firstName+" "+data.people.values[i].lastName+"<label/>");
+					listitem = listitem.concat("<label>"+data.people.values[i].headline+"<label/>");
 					listitem = listitem.concat("</li></a>");
 				}
 				else{
 					listitem = listitem = "<li>";
-					listitem = listitem.concat("<img src='"+data.people.values[i].pictureUrl+"'/>");
+					if(data.people.values[i].pictureUrl!=undefined){
+						listitem = listitem.concat("<img src='"+data.people.values[i].pictureUrl+"'/>");
+					}
+					else{
+						listitem = listitem.concat("<img src='http://www.placehold.it/80x80'/>");
+					}
 					listitem = listitem.concat("<label>"+data.people.values[i].firstName+" "+data.people.values[i].lastName+"<label/>");
+					listitem = listitem.concat("<label>"+data.people.values[i].headline+"<label/>");
 					listitem = listitem.concat("</li>");
 				}
 				console.log(listitem);
