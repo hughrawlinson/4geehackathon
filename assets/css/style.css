@@ -13,3 +13,6 @@
 #catContainer{
 	display:none;
 }
+li > a {
+    display: block;
+}

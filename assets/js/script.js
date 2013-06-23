@@ -38,6 +38,7 @@ $(document).ready(function(){
 		$(this).addClass("linkedInAuthorised");
 	}
 });
+var listitem = "";
 $('#submit').click(function(){
 	var searchParameter = $('#input').val();
 	IN.API.PeopleSearch()
@@ -46,12 +47,24 @@ $('#submit').click(function(){
 		.result(function(data){
 			console.log(data);
 			var list = "<ul>";
-			// for(int i = 0; i < data.people.values.length; i++){
-			// 	var listitem = "<ul>";
-			// 	list.append(listitem);
-			// }
-			list.append("</ul>");
-			$('#linkedinList').html("success");
+			for(var i = 0; i < data.people.values.length; i++){
+				if(data.people.values[i].siteStandardProfileRequest!=undefined){
+					listitem = "<a href='"+data.people.values[i].siteStandardProfileRequest.url+"'><li>";
+					listitem = listitem.concat("<img src='"+data.people.values[i].pictureUrl+"'/>");
+					listitem = listitem.concat("<label>"+data.people.values[i].firstName+" "+data.people.values[i].lastName+"<label/>");
+					listitem = listitem.concat("</li></a>");
+				}
+				else{
+					listitem = listitem = "<li>";
+					listitem = listitem.concat("<img src='"+data.people.values[i].pictureUrl+"'/>");
+					listitem = listitem.concat("<label>"+data.people.values[i].firstName+" "+data.people.values[i].lastName+"<label/>");
+					listitem = listitem.concat("</li>");
+				}
+				console.log(listitem);
+				list = list.concat(listitem);
+			}
+			list.concat("</ul>");
+			$('#linkedinList').html(list);
 		});
 })
 navigator.geolocation.getCurrentPosition(locate);
