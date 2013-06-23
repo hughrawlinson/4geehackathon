@@ -17,11 +17,40 @@ li > a {
     display: block;
 }
 #linkedinList{
-	-moz-column-count:4; /* Firefox */
-	-webkit-column-count:4; /* Safari and Chrome */
-	column-count:4;
+	/*-moz-column-count:4;
+	-webkit-column-count:4;
+	column-count:4;*/
 	height:450px;
 }/*
 #linkedinList > div{
 	height:400px;
 }*/
+
+#linkedinList ul a{
+    float:left;
+    list-style: none;
+    /*border: solid 1px #555;*/
+    border-radius: 6px;
+    background-color: #EEE;
+    height:100px;
+    width:257px;
+    display:block;
+    margin-right: 9px;
+    margin-bottom: 9px;
+    padding:10px;
+}
+
+#linkedinList ul a:hover{
+background-color: #DDD;
+}
+
+
+#linkedinList img{
+    float:left;
+}
+label{
+    width:160px;
+    clear:none;
+    float:right;
+    color:#222;
+}
